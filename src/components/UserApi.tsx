@@ -1,47 +1,47 @@
 // import Form from "./components/Form";
-import userService, { User } from "../services/user-service";
-import useUsers from "../hooks/useUsers";
+import userService from "../services/user-http-service";
+import useUsers, { User } from "../hooks/useUsers";
 
 const UserApi = () => {
-  const { users, error, isLoading, setUsers, setError } = useUsers();
+  const { data, error, isLoading, setData, setError } = useUsers();
 
   const deleteUser = (user: User) => {
-    const originalUsers = [...users];
+    const originalUsers = [...data];
 
-    setUsers(users.filter((u) => u.id !== user.id));
+    setData(data.filter((u) => u.id !== user.id));
 
     const request = userService.delete(user.id);
     request.catch((err) => {
       setError(err.message);
-      setUsers(originalUsers);
+      setData(originalUsers);
     });
   };
 
   const updateUser = (user: User) => {
-    const originalUsers = [...users];
+    const originalUsers = [...data];
 
     const updatedUser = { ...user, name: user.name + "!" };
-    setUsers(users.map((u) => (u.id === user.id ? updatedUser : u)));
+    setData(data.map((u) => (u.id === user.id ? updatedUser : u)));
 
     const request = userService.update(updatedUser);
     request.catch((err) => {
       setError(err.message);
-      setUsers(originalUsers);
+      setData(originalUsers);
     });
   };
 
   const addUser = () => {
-    const originalUsers = [...users];
+    const originalUsers = [...data];
 
     const newUser = { id: 0, name: "Shelby" };
-    setUsers([newUser, ...users]);
+    setData([newUser, ...data]);
 
     const request = userService.create(newUser);
     request
-      .then(({ data: savedUser }) => setUsers([savedUser, ...users]))
+      .then(({ data: savedUser }) => setData([savedUser, ...data]))
       .catch((err) => {
         setError(err.message);
-        setUsers(originalUsers);
+        setData(originalUsers);
       });
   };
 
@@ -53,7 +53,7 @@ const UserApi = () => {
         Add
       </button>
       <ul className="list-group">
-        {users.map((user) => (
+        {data.map((user) => (
           <li
             key={user.id}
             className="list-group-item d-flex justify-content-between"

@@ -31,7 +31,7 @@ const useData = <T>(baseUrl: string, endpoint: string) => {
     return () => controller.abort();
   }, []);
 
-  return { data, error, isLoading };
+  return { data, error, isLoading, setData, setError };
 };
 
 export default useData;
