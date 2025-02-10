@@ -1,14 +1,17 @@
 // import Form from "./components/Form"
 // import UserApi from "./components/UserApi"
-import Chakra from "./components/Chakra";
+import Layout from "./components/Layout";
 
 function App() {
   return (
-    <>
-      {/* <Form /> */}
-      {/* <UserApi /> */}
-      <Chakra />
-    </>
+    <Layout />
+    // <>
+    //   {/* OTHER PROJECTS */}
+    //   <>
+    //     {/* <Form /> */}
+    //     {/* <UserApi /> */}
+    //   </>
+    // </>
   );
 }
 
