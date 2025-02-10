@@ -1,4 +1,4 @@
-import useData from "./useData";
+import useData from "./useDataArray";
 
 export interface User {
   id: number;

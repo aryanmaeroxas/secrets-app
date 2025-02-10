@@ -1,10 +1,11 @@
-import usePokemons from "@/hooks/usePokemons";
+import { usePokemons } from "@/hooks/usePokemons";
 import { Text, Stack } from "@chakra-ui/react";
 import PokemonCard from "./PokemonCard";
 import PokemonCardSkeleton from "./PokemonCardSkeleton";
 
 const PokemonGrid = () => {
   const { data, error, isLoading } = usePokemons();
+
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
