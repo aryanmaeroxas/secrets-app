@@ -29,8 +29,6 @@
     "noImplicitThis": true,
 
     "noPropertyAccessFromIndexSignature": true
-
-
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

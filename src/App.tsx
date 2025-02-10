@@ -1,11 +1,13 @@
-import Form from "./components/Form";
-import UserApi from "./components/UserApi";
+// import Form from "./components/Form"
+// import UserApi from "./components/UserApi"
+import Chakra from "./components/Chakra";
 
 function App() {
   return (
     <>
-      <Form />
-      <UserApi />
+      {/* <Form /> */}
+      {/* <UserApi /> */}
+      <Chakra />
     </>
   );
 }
