@@ -1,6 +1,7 @@
 import { Grid, GridItem, Stack, Text } from "@chakra-ui/react";
 import { useColorModeValue } from "@/components/ui/color-mode";
 import NavBar from "./NavBar";
+import PokemonGrid from "./PokemonGrid";
 
 const Layout = () => {
   const bg = useColorModeValue("white", "gray.800");
@@ -24,7 +25,7 @@ const Layout = () => {
         </GridItem>
       </Stack>
       <GridItem area="main">
-        <Text>Main</Text>
+        <PokemonGrid />
       </GridItem>
     </Grid>
   );
