@@ -20,6 +20,7 @@ const usePokemons = () => {
   useEffect(() => {
     const controller = new AbortController();
 
+    setLoading(true);
     pokemonApi
       .get<FetchPokemonsResponse>("/pokemon", { signal: controller.signal })
       .then((res) => {
@@ -33,7 +34,7 @@ const usePokemons = () => {
       });
     return () => controller.abort();
   }, []);
-  return { pokemons, error };
+  return { pokemons, error, isLoading };
 };
 
 export default usePokemons;
